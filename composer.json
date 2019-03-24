@@ -1,6 +1,9 @@
 {
     "name": "joachimdalen/imgur-api",
     "description": "An Imgur API wrapper for Laravel",
+    "keywords": ["laravel", "upload", "imgur"],
+    "homepage": "https://github.com/joachimdalen/ImgurApi",
+    "type": "library",
     "authors": [
         {
             "name": "Joachim Dalen",
@@ -18,7 +21,10 @@
         "laravel": {
             "providers": [
                 "JoachimDalen\\ImgurApi\\ImgurApiServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "ImgurApi": "JoachimDalen\\ImgurApi\\Facade"
+            }
         }
     }
 }
