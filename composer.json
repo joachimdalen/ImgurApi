@@ -1,0 +1,24 @@
+{
+    "name": "joachimdalen/imgur-api",
+    "description": "An Imgur API wrapper for Laravel",
+    "authors": [
+        {
+            "name": "Joachim Dalen",
+            "email": "me@d3v.no"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "JoachimDalen\\ImgurApi\\": "src/"
+        }
+    },
+    "extra": {
+        "component": "package",
+        "laravel": {
+            "providers": [
+                "JoachimDalen\\ImgurApi\\ImgurApiServiceProvider"
+            ]
+        }
+    }
+}
