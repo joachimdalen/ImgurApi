@@ -15,5 +15,9 @@ class ImgurApiServiceProvider extends ServiceProvider
 
     public function register()
     {
+        $this->app->bind('ImgurApi', function ($app) {
+            return new ImgurApi($app);
+        });
+        $this->app->alias('ImgurApi', 'JoachimDalen\ImgurApi\ImgurApi');
     }
 }
