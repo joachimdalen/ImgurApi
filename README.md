@@ -21,7 +21,7 @@ Laravel wrapper around the Imgur api.
 JoachimDalen\ImgurApi\ImgurApiServiceProvider::class,
 ```
 
-3. In the same `config/app.php` and add the following to the `aliases` array:
+3. In the same `config/app.php` add the following to the `aliases` array:
 
 ```php
 'ImgurApi'   => JoachimDalen\ImgurApi\Facades\ImgurApi::class,
