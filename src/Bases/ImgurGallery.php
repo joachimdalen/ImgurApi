@@ -1,6 +1,8 @@
 <?php
 
-namespace JoachimDalen\ImgurApi;
+namespace JoachimDalen\ImgurApi\Bases;
+
+use JoachimDalen\ImgurApi\BaseApi;
 
 class ImgurGallery
 {

@@ -3,6 +3,7 @@
 namespace JoachimDalen\ImgurApi;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class BaseApi
 {
@@ -23,7 +24,7 @@ class BaseApi
      * @param bool $anonymous
      * @param array $content
      * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function request(string $endpoint, string $method, bool $anonymous = true, array $content = [])
     {

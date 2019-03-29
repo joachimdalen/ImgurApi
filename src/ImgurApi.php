@@ -2,6 +2,7 @@
 
 namespace JoachimDalen\ImgurApi;
 
+use Illuminate\Foundation\Application;
 use InvalidAuthCredentialsException;
 
 /**
@@ -14,7 +15,7 @@ class ImgurApi
     /**
      * Laravel application
      *
-     * @var \Illuminate\Foundation\Application
+     * @var Application
      */
     public $app;
 

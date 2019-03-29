@@ -1,9 +1,12 @@
 <?php
 
-namespace JoachimDalen\ImgurApi;
+namespace JoachimDalen\ImgurApi\Bases;
 
 
 use AlbumHashNotSetException;
+use Exception;
+use GuzzleHttp\Exception\GuzzleException;
+use JoachimDalen\ImgurApi\BaseApi;
 
 class ImgurAlbum
 {
@@ -35,7 +38,7 @@ class ImgurAlbum
      *
      * @see https://api.imgur.com/models/album
      * @return Imgur/Album
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      * @throws AlbumHashNotSetException
      */
     public function details()
@@ -52,7 +55,7 @@ class ImgurAlbum
      *
      * @see https://api.imgur.com/models/image
      * @return Imgur/Image
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      * @throws AlbumHashNotSetException
      */
     public function images()
@@ -69,8 +72,8 @@ class ImgurAlbum
      * Get information about an image in an album, any additional actions found in Image Endpoint will also work.
      * @param string $imageHash Hash id of the image
      * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Exception
+     * @throws GuzzleException
+     * @throws Exception
      */
     public function image(string $imageHash)
     {
@@ -95,12 +98,12 @@ class ImgurAlbum
      * @param array $data
      * @param bool $authed
      * @param string|null $deleteHash
-     * @throws \Exception
+     * @throws Exception
      */
     public function update(array $data, bool $authed = false, string $deleteHash = null)
     {
         if (!$authed && is_null($deleteHash))
-            throw new \Exception("When updating anonymous albums deleteHash must be present");
+            throw new Exception("When updating anonymous albums deleteHash must be present");
 
 
     }
