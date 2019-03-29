@@ -33,4 +33,4 @@ JoachimDalen\ImgurApi\ImgurApiServiceProvider::class,
 php artisan vendor:publish
 ```
 ## Configuration
-Follow the instruction on creating an [Imgur Application](https://apidocs.imgur.com/) and fill in your client id and client secret in `config/imgur.php`
+Follow the instruction on creating an [Imgur Application](https://apidocs.imgur.com/) and fill in your `client_id` and `client_secret` in `config/imgur.php`
