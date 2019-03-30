@@ -26,10 +26,7 @@ class ImgurApi
      */
     public $api;
 
-    /**
-     * @var string
-     */
-    private $accessToken;
+
 
     /**
      * ImgurApi constructor.
@@ -63,10 +60,5 @@ class ImgurApi
     public function gallery()
     {
         return new Gallery($this->api);
-    }
-
-    public function setAccessToken($token)
-    {
-        $this->accessToken = $token;
     }
 }

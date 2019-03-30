@@ -11,11 +11,20 @@ class BaseApi
     private $clientSecret;
     protected $baseUri = 'https://api.imgur.com/3/';
     protected $params = [];
+    /**
+     * @var string
+     */
+    private $accessToken;
 
     public function __construct($clientId, $clientSecret)
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
+    }
+
+    public function setAccessToken($token)
+    {
+        $this->accessToken = $token;
     }
 
     /**
