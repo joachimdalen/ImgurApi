@@ -4,6 +4,7 @@ namespace JoachimDalen\ImgurApi\Bases;
 
 
 use AlbumHashNotSetException;
+use DeleteHashNotSetException;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use JoachimDalen\ImgurApi\BaseApi;
@@ -86,31 +87,62 @@ class ImgurAlbum
 
     /**
      * Create a new album.
+     *
      * @param array $data
      * @param bool $authed
+     * @return mixed
+     * @throws GuzzleException
      */
     public function create(array $data, bool $authed = false)
     {
-
+        return $this->api->request(
+            $this->endpoint,
+            'POST',
+            $authed,
+            $data
+        );
     }
 
     /**
+     * Update the information of an album. For anonymous albums, albumHash must be set.
+     *
      * @param array $data
      * @param bool $authed
      * @param string|null $deleteHash
+     * @return mixed
      * @throws Exception
+     * @throws GuzzleException
      */
     public function update(array $data, bool $authed = false, string $deleteHash = null)
     {
-        if (!$authed && is_null($deleteHash))
-            throw new Exception("When updating anonymous albums deleteHash must be present");
-
-
+        if (!$authed && is_null($deleteHash)) throw new DeleteHashNotSetException;
+        if ($authed && is_null($this->albumHash)) throw new AlbumHashNotSetException;
+        return $this->api->request(
+            $this->endpoint . '/' . $authed ? $this->albumHash : $deleteHash,
+            'PUT',
+            $authed,
+            $data
+        );
     }
 
-    public function delete()
+    /**
+     * Delete an album.
+     *
+     * @param bool $authed
+     * @param string|null $deleteHash
+     * @return mixed
+     * @throws GuzzleException
+     * @throws Exception
+     */
+    public function delete(bool $authed = false, string $deleteHash = null)
     {
-
+        if (!$authed && is_null($deleteHash)) throw new DeleteHashNotSetException;
+        if ($authed && is_null($this->albumHash)) throw new AlbumHashNotSetException;
+        return $this->api->request(
+            $this->endpoint . '/' . $authed ? $this->albumHash : $deleteHash,
+            'DELETE',
+            $authed
+        );
     }
 
     public function favorite()
