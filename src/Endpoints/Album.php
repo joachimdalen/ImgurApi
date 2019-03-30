@@ -1,6 +1,6 @@
 <?php
 
-namespace JoachimDalen\ImgurApi\Bases;
+namespace JoachimDalen\ImgurApi\Endpoints;
 
 
 use AlbumHashNotSetException;
@@ -9,7 +9,7 @@ use Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use JoachimDalen\ImgurApi\BaseApi;
 
-class ImgurAlbum
+class Album
 {
     /**
      * @var BaseApi
@@ -23,7 +23,7 @@ class ImgurAlbum
     private $endpoint = 'album/';
 
     /**
-     * ImgurAlbum constructor.
+     * Album constructor.
      * @param BaseApi $api
      * @param string $albumHash
      */

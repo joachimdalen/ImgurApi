@@ -1,10 +1,10 @@
 <?php
 
-namespace JoachimDalen\ImgurApi\Bases;
+namespace JoachimDalen\ImgurApi\Endpoints;
 
 use JoachimDalen\ImgurApi\BaseApi;
 
-class ImgurGallery
+class Gallery
 {
     /**
      * @var BaseApi
@@ -12,7 +12,7 @@ class ImgurGallery
     private $api;
 
     /**
-     * ImgurGallery constructor.
+     * Gallery constructor.
      * @param BaseApi $api
      */
     public function __construct(BaseApi $api)

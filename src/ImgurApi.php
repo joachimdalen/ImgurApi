@@ -4,6 +4,8 @@ namespace JoachimDalen\ImgurApi;
 
 use Illuminate\Foundation\Application;
 use InvalidAuthCredentialsException;
+use JoachimDalen\ImgurApi\Endpoints\Album;
+use JoachimDalen\ImgurApi\Endpoints\Gallery;
 
 /**
  * Class ImgurApi
@@ -48,16 +50,19 @@ class ImgurApi
 
     /**
      * @param null|string $albumHash The hash of the album to manage
-     * @return ImgurAlbum
+     * @return Album
      */
     public function album($albumHash = null)
     {
-        return new ImgurAlbum($this->api, $albumHash);
+        return new Album($this->api, $albumHash);
     }
 
+    /**
+     * @return Gallery
+     */
     public function gallery()
     {
-        return new ImgurGallery($this->api);
+        return new Gallery($this->api);
     }
 
     public function setAccessToken($token)
